@@ -2,24 +2,11 @@ import AnalysisForm from '@/components/AnalysisForm';
 
 export default function AnalysisPage() {
     return (
-        <main className="min-h-screen py-10 px-4 relative overflow-hidden">
-            {/* Background Decor */}
-            <div
-                style={{
-                    position: 'absolute',
-                    top: '-10%',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    width: '800px',
-                    height: '800px',
-                    background: 'radial-gradient(circle, rgba(112,0,255,0.08) 0%, rgba(5,5,17,0) 70%)',
-                    borderRadius: '50%',
-                    filter: 'blur(80px)',
-                    zIndex: 0
-                }}
-            />
+        <main className="min-h-screen py-0 px-0 relative overflow-hidden flex items-center justify-center">
+            {/* Dark Overlay for contrast against Stars */}
+            <div className="absolute inset-0 bg-black/40 z-10" />
 
-            <div className="container relative z-10">
+            <div className="w-full h-full relative z-20">
                 <AnalysisForm />
             </div>
         </main>
