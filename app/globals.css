@@ -1,20 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Philosopher:wght@400;700&display=swap');
 
 :root {
-  /* Premium Palette */
-  --bg-deep: #050511;
-  --bg-card: #0F0F23;
-  --primary-gold: #D4AF37;
-  --primary-gold-dim: #AA8C2C;
-  --accent-purple: #7000FF;
-  --accent-cosmic: #9D00E0;
+  /* Astroline Premium Palette */
+  --bg-deep: #111827;
+  --bg-card: #1F2937;
+  --primary-indigo: #6366F1;
+  /* Indigo-500 */
+  --primary-accent: #818CF8;
+  /* Indigo-400 */
   --text-main: #FFFFFF;
-  --text-muted: #A0A0B0;
+  --text-muted: #9CA3AF;
 
-  /* Gradients */
-  --gradient-gold: linear-gradient(135deg, #FFD700 0%, #D4AF37 100%);
-  --gradient-cosmic: linear-gradient(135deg, #2E004E 0%, #050511 100%);
-  --gradient-overlay: linear-gradient(180deg, rgba(5, 5, 17, 0.8) 0%, rgba(5, 5, 17, 1) 100%);
+  /* Kept for legacy compatibility but updated values */
+  --primary-gold: #6366F1;
+  --gradient-gold: linear-gradient(135deg, #6366F1 0%, #4338CA 100%);
+
+  --font-heading: 'Philosopher', sans-serif;
+  --font-body: 'Cairo', sans-serif;
 
   /* Spacing */
   --spacing-xs: 0.5rem;
@@ -38,9 +40,18 @@ html,
 body {
   background-color: var(--bg-deep);
   color: var(--text-main);
-  font-family: 'Cairo', sans-serif;
+  font-family: var(--font-body);
   overflow-x: hidden;
   direction: rtl;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }
 
 a {
@@ -54,7 +65,7 @@ a:hover {
 }
 
 button {
-  font-family: 'Cairo', sans-serif;
+  font-family: var(--font-body);
   border: none;
   cursor: pointer;
   outline: none;
@@ -68,17 +79,18 @@ button {
 }
 
 .text-gold {
-  color: var(--primary-gold);
+  color: var(--primary-accent);
+  /* Mapped to new accent */
 }
 
 .btn-primary {
   background: var(--gradient-gold);
-  color: var(--bg-deep);
+  color: #fff;
   padding: 1rem 2.5rem;
   border-radius: var(--radius-lg);
   font-weight: 700;
   font-size: 1.2rem;
-  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
   transition: all 0.3s ease;
   display: inline-block;
   position: relative;
@@ -95,7 +107,7 @@ button {
   height: 100%;
   background: linear-gradient(90deg,
       transparent,
-      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.2),
       transparent);
   transition: 0.5s;
   z-index: -1;
@@ -107,7 +119,7 @@ button {
 
 .btn-primary:hover {
   transform: translateY(-2px) scale(1.02);
-  box-shadow: 0 6px 25px rgba(212, 175, 55, 0.6);
+  box-shadow: 0 6px 25px rgba(99, 102, 241, 0.5);
 }
 
 .btn-primary:active {
@@ -115,7 +127,7 @@ button {
 }
 
 .glass-panel {
-  background: rgba(15, 15, 35, 0.6);
+  background: rgba(31, 41, 55, 0.6);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -139,96 +151,6 @@ button {
   animation: fadeIn 0.6s ease-out forwards;
 }
 
-@keyframes bounceSlow {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-5px);
-  }
-}
-
-.animate-bounce-slow {
-  animation: bounceSlow 3s infinite ease-in-out;
-}
-
-@keyframes draw {
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-.animate-draw {
-  stroke-dasharray: 100;
-  stroke-dashoffset: 100;
-  animation: draw 2s ease-out forwards;
-}
-
-.delay-100 {
-  animation-delay: 0.1s;
-}
-
-.delay-200 {
-  animation-delay: 0.2s;
-}
-
-.drop-shadow-glow {
-  filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.5));
-}
-
-/* Scrollbar */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.4);
-}
-
-/* Magical Wizard UI */
-.input-magical {
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-  color: var(--primary-gold);
-  font-size: 2rem;
-  text-align: center;
-  width: 100%;
-  padding: 1rem;
-  transition: all 0.4s ease;
-  font-weight: 300;
-}
-
-.input-magical:focus {
-  border-bottom-color: var(--primary-gold);
-  transform: scale(1.05);
-  text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-}
-
-.input-magical::placeholder {
-  color: rgba(255, 255, 255, 0.1);
-  font-size: 1.5rem;
-}
-
-/* Cosmic Date Input Fixes */
-input[type="date"].input-magical,
-input[type="time"].input-magical {
-  color-scheme: dark;
-}
-
-/* Wizard Animations */
 @keyframes slideUpFade {
   0% {
     opacity: 0;
@@ -242,14 +164,66 @@ input[type="time"].input-magical {
 }
 
 .animate-wizard-enter {
-  animation: slideUpFade 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-.wizard-step-container {
-  min-height: 60vh;
+/* Scroll Snap Picker Styles */
+.picker-container {
+  height: 200px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  background: transparent;
+  width: 100%;
+  text-align: center;
+}
+
+.picker-item {
+  height: 50px;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+  scroll-snap-align: center;
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  transition: all 0.2s;
+}
+
+.picker-item.active {
+  color: var(--text-main);
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+/* Hide scrollbar for pickers */
+.picker-container::-webkit-scrollbar {
+  display: none;
+}
+
+.picker-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Magical/App Input Override */
+.input-magical {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #374151;
+  color: white;
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+  padding: 1rem;
+  transition: all 0.4s ease;
+  font-weight: 300;
+  font-family: var(--font-heading);
+}
+
+.input-magical:focus {
+  border-bottom-color: var(--primary-indigo);
+  outline: none;
+}
+
+.input-magical::placeholder {
+  color: #4B5563;
 }
