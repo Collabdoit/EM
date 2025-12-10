@@ -9,7 +9,7 @@ interface ScrollPickerProps {
 
 export default function ScrollPicker({ items, value, onChange, label }: ScrollPickerProps) {
     const containerRef = useRef<HTMLDivElement>(null);
-    const itemHeight = 50;
+    const itemHeight = 60; // Increased touch target
 
     useEffect(() => {
         if (containerRef.current) {
@@ -37,11 +37,11 @@ export default function ScrollPicker({ items, value, onChange, label }: ScrollPi
     };
 
     return (
-        <div className="flex flex-col items-center">
-            {label && <span className="mb-2 text-sm text-gray-500 uppercase tracking-widest">{label}</span>}
-            <div className="relative h-[150px] w-full max-w-[100px] overflow-hidden">
+        <div className="flex flex-col items-center w-full">
+            {label && <span className="mb-2 text-sm text-[#5671ff] uppercase tracking-widest font-bold">{label}</span>}
+            <div className="relative h-[180px] w-full max-w-[120px] overflow-hidden">
                 {/* Selection Highlight / Overlay */}
-                <div className="absolute top-[50px] left-0 right-0 h-[50px] border-t border-b border-indigo-500/30 bg-indigo-500/10 pointer-events-none z-10"></div>
+                <div className="absolute top-[60px] left-0 right-0 h-[60px] border-t-2 border-b-2 border-[#5671ff]/50 bg-[#5671ff]/10 pointer-events-none z-10 rounded-lg"></div>
 
                 {/* Scroll Container */}
                 <div
@@ -50,19 +50,19 @@ export default function ScrollPicker({ items, value, onChange, label }: ScrollPi
                     style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                     onScroll={handleScroll}
                 >
-                    {/* Padding top/bottom to allow first/last item to reach center */}
-                    <div style={{ height: '50px' }}></div>
+                    {/* Padding to center first/last items */}
+                    <div style={{ height: '60px' }}></div>
 
                     {items.map((item) => (
                         <div
                             key={item}
-                            className={`h-[50px] flex items-center justify-center snap-center transition-all duration-200 ${item === value ? 'text-white font-bold scale-110' : 'text-gray-500 scale-90'}`}
+                            className={`h-[60px] flex items-center justify-center snap-center transition-all duration-200 ${item === value ? 'text-white font-bold scale-110 text-xl' : 'text-gray-500 scale-90 text-lg'}`}
                         >
                             {item}
                         </div>
                     ))}
 
-                    <div style={{ height: '50px' }}></div>
+                    <div style={{ height: '60px' }}></div>
                 </div>
             </div>
         </div>
