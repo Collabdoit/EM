@@ -15,7 +15,7 @@ export default function PaymentPage() {
         setIsProcessing(true);
         // Simulate payment processing
         setTimeout(() => {
-            router.push('/analysis/report');
+            router.push('/report');
         }, 2000);
     };
 
@@ -52,8 +52,8 @@ export default function PaymentPage() {
                             key={method.id}
                             onClick={() => setSelectedMethod(method.id)}
                             className={`w-full flex items-center justify-between p-4 rounded-xl border transition-all ${selectedMethod === method.id
-                                    ? 'border-yellow-500 bg-yellow-500/10'
-                                    : 'border-gray-700 hover:border-gray-500 bg-transparent'
+                                ? 'border-yellow-500 bg-yellow-500/10'
+                                : 'border-gray-700 hover:border-gray-500 bg-transparent'
                                 }`}
                         >
                             <span className="flex items-center gap-3 font-bold">

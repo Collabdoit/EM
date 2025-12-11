@@ -22,7 +22,7 @@ export default function PreviewPage() {
             setLocations(calculateAstroMap(parsed.birthDate, parsed.birthTime, parsed.birthCity));
             analyzePalmImage(parsed.palmImage).then(setPalmAnalysis);
         } else {
-            router.push('/analysis/input');
+            router.push('/');
         }
     }, [router]);
 
@@ -124,7 +124,7 @@ export default function PreviewPage() {
                 {/* CTA */}
                 <div className="text-center pt-8 pb-20">
                     <button
-                        onClick={() => router.push('/analysis/payment')}
+                        onClick={() => router.push('/payment')}
                         className="btn-primary w-full max-w-md mx-auto text-lg animate-bounce-slow"
                     >
                         افتح التقرير الكامل الآن

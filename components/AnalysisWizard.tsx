@@ -153,7 +153,7 @@ export default function AnalysisWizard() {
             timestamp: new Date().toISOString()
         };
         localStorage.setItem('userAnalysisData', JSON.stringify(data));
-        router.push('/analysis/preview');
+        router.push('/preview');
     };
 
     // Total Steps = 11 (0-10 mapped to 1-11 in UI, plus processing)

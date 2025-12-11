@@ -22,7 +22,7 @@ export default function ReportPage() {
             setLocations(calculateAstroMap(parsed.birthDate, parsed.birthTime, parsed.birthCity));
             analyzePalmImage(parsed.palmImage).then(setPalmAnalysis);
         } else {
-            router.push('/analysis/input');
+            router.push('/');
         }
     }, [router]);
 
