@@ -7,7 +7,7 @@ import ScrollPicker from './ScrollPicker';
 
 type Step = 'gender' | 'name' | 'birth' | 'time' | 'city' | 'upload' | 'processing';
 
-export default function AnalysisForm() {
+export default function AnalysisWizard() {
     // State
     const [wizardStep, setWizardStep] = useState(0);
     const router = useRouter();
@@ -517,7 +517,7 @@ export default function AnalysisForm() {
             </div>
 
             {/* Version Indicator */}
-            <div className="absolute bottom-2 text-[10px] text-gray-700 font-mono opacity-50">v1.1</div>
+            <div className="absolute bottom-2 text-[10px] text-gray-700 font-mono opacity-50">v2.0 REBORN</div>
         </div>
     );
 }
