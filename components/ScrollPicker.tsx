@@ -41,14 +41,16 @@ export default function ScrollPicker({ items, value, onChange, label }: ScrollPi
             {label && <span className="mb-2 text-sm text-[#5671ff] uppercase tracking-widest font-bold font-body">{label}</span>}
             <div
                 className="relative w-full max-w-[120px] bg-transparent"
-                style={{ height: '180px', maxHeight: '180px', overflow: 'hidden' }}
+                style={{
+                    height: '180px',
+                    maxHeight: '180px',
+                    overflow: 'hidden',
+                    maskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 20%, black 80%, transparent)'
+                }}
             >
                 {/* Selection Highlight / Overlay */}
                 <div className="absolute top-[60px] left-0 right-0 h-[60px] border-t-2 border-b-2 border-[#5671ff]/50 bg-[#5671ff]/10 pointer-events-none z-10 rounded-lg"></div>
-
-                {/* Gradient Masks */}
-                <div className="absolute top-0 left-0 right-0 h-[50px] bg-gradient-to-b from-[#111827] to-transparent z-10 pointer-events-none"></div>
-                <div className="absolute bottom-0 left-0 right-0 h-[50px] bg-gradient-to-t from-[#111827] to-transparent z-10 pointer-events-none"></div>
 
                 {/* Scroll Container */}
                 <div

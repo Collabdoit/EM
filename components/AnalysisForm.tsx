@@ -171,7 +171,7 @@ export default function AnalysisForm() {
     // 11: Processing
 
     return (
-        <div className="w-full h-[100dvh] flex flex-col items-center justify-center relative text-center overflow-hidden bg-[#111827]">
+        <div className="w-full h-[100dvh] flex flex-col items-center justify-center relative text-center overflow-hidden">
 
             {/* Header / Progress */}
             {wizardStep < 11 && wizardStep !== 6 && wizardStep !== 9 && (
@@ -191,17 +191,17 @@ export default function AnalysisForm() {
                 {wizardStep === 0 && (
                     <div className="w-full space-y-12">
                         <div className="space-y-4">
-                            <h1 className="text-4xl md:text-5xl font-heading text-white leading-tight">ما هو جنسك؟</h1>
-                            <p className="text-gray-400 text-lg">لتحليل الطاقة الأنثوية والذكورية</p>
+                            <h1 className="text-5xl md:text-6xl font-heading text-white leading-tight drop-shadow-lg">ما هو جنسك؟</h1>
+                            <p className="text-gray-300 text-xl font-light">لتحليل الطاقة الأنثوية والذكورية</p>
                         </div>
                         <div className="flex flex-col gap-6 w-full px-2">
-                            <button onClick={() => { setGender('female'); nextStep(); }} className="group w-full py-8 md:py-10 rounded-3xl bg-[#1F2937]/80 backdrop-blur-md border border-white/10 hover:border-[#5671ff] hover:bg-[#5671ff]/10 active:scale-95 transition-all duration-300 flex items-center justify-between px-8 md:px-12">
-                                <span className="text-2xl md:text-3xl font-bold text-white group-hover:text-[#5671ff] transition-colors">أنثى</span>
-                                <span className="text-4xl md:text-5xl">♀</span>
+                            <button onClick={() => { setGender('female'); nextStep(); }} className="group w-full py-10 rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/20 hover:border-[#5671ff] hover:bg-[#5671ff]/20 active:scale-95 transition-all duration-300 flex items-center justify-between px-10 shadow-2xl">
+                                <span className="text-3xl md:text-4xl font-bold text-white group-hover:text-[#5671ff] transition-colors drop-shadow-md">أنثى</span>
+                                <span className="text-6xl md:text-7xl filter drop-shadow-lg">♀</span>
                             </button>
-                            <button onClick={() => { setGender('male'); nextStep(); }} className="group w-full py-8 md:py-10 rounded-3xl bg-[#1F2937]/80 backdrop-blur-md border border-white/10 hover:border-[#5671ff] hover:bg-[#5671ff]/10 active:scale-95 transition-all duration-300 flex items-center justify-between px-8 md:px-12">
-                                <span className="text-2xl md:text-3xl font-bold text-white group-hover:text-[#5671ff] transition-colors">ذكر</span>
-                                <span className="text-4xl md:text-5xl">♂</span>
+                            <button onClick={() => { setGender('male'); nextStep(); }} className="group w-full py-10 rounded-[2rem] bg-white/5 backdrop-blur-xl border border-white/20 hover:border-[#5671ff] hover:bg-[#5671ff]/20 active:scale-95 transition-all duration-300 flex items-center justify-between px-10 shadow-2xl">
+                                <span className="text-3xl md:text-4xl font-bold text-white group-hover:text-[#5671ff] transition-colors drop-shadow-md">ذكر</span>
+                                <span className="text-6xl md:text-7xl filter drop-shadow-lg">♂</span>
                             </button>
                         </div>
                     </div>
@@ -210,11 +210,11 @@ export default function AnalysisForm() {
                 {/* STEP 1: NAME */}
                 {wizardStep === 1 && (
                     <div className="w-full space-y-12">
-                        <h1 className="text-4xl md:text-5xl font-heading text-white">اسمك الكامل</h1>
+                        <h1 className="text-4xl md:text-5xl font-heading text-white drop-shadow-lg">اسمك الكامل</h1>
                         <div className="relative w-full">
-                            <input autoFocus value={name} onChange={(e) => setName(e.target.value)} className="input-magical text-3xl md:text-4xl py-4" placeholder="اكتب اسمك..." />
+                            <input autoFocus value={name} onChange={(e) => setName(e.target.value)} className="input-magical text-3xl md:text-4xl py-4 bg-transparent text-center text-white placeholder-gray-500 border-b-2 border-white/20 focus:border-[#5671ff] outline-none transition-all" placeholder="اكتب اسمك..." />
                         </div>
-                        <button disabled={name.length < 2} onClick={nextStep} className="btn-primary w-full py-4 text-xl mt-12 disabled:opacity-50 disabled:scale-100 shadow-[0_4px_20px_rgba(86,113,255,0.4)]">استمرار</button>
+                        <button disabled={name.length < 2} onClick={nextStep} className="btn-primary w-full py-5 text-2xl mt-12 disabled:opacity-50 disabled:scale-100 shadow-[0_4px_30px_rgba(86,113,255,0.5)]">استمرار</button>
                     </div>
                 )}
 
@@ -222,14 +222,14 @@ export default function AnalysisForm() {
                 {wizardStep === 2 && (
                     <div className="w-full space-y-8 h-full flex flex-col justify-center">
                         <div className="space-y-4 mb-4">
-                            <h1 className="text-3xl md:text-4xl font-heading text-white leading-tight">حالتك الاجتماعية؟</h1>
-                            <p className="text-gray-400">لنخبرك عن توافقك مع الآخرين</p>
+                            <h1 className="text-4xl md:text-5xl font-heading text-white leading-tight drop-shadow-lg">حالتك الاجتماعية؟</h1>
+                            <p className="text-gray-300 text-lg">لنخبرك عن توافقك مع الآخرين</p>
                         </div>
                         <div className="grid grid-cols-1 gap-4 w-full overflow-y-auto max-h-[60vh] pr-2 custom-scrollbar">
                             {relationshipOptions.map((opt) => (
-                                <button key={opt.id} onClick={() => { setRelationship(opt.id); nextStep(); }} className="w-full py-5 rounded-2xl bg-[#1F2937]/60 border border-white/5 hover:border-[#5671ff] hover:bg-[#5671ff]/20 active:scale-98 transition-all flex items-center px-6 gap-4">
-                                    <span className="text-3xl">{opt.icon}</span>
-                                    <span className="text-xl font-bold text-gray-100">{opt.label}</span>
+                                <button key={opt.id} onClick={() => { setRelationship(opt.id); nextStep(); }} className="w-full py-6 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 hover:border-[#5671ff] hover:bg-[#5671ff]/20 active:scale-98 transition-all flex items-center px-6 gap-6 shadow-lg group">
+                                    <span className="text-4xl filter drop-shadow-md group-hover:scale-110 transition-transform">{opt.icon}</span>
+                                    <span className="text-2xl font-bold text-gray-100">{opt.label}</span>
                                 </button>
                             ))}
                         </div>
@@ -243,10 +243,10 @@ export default function AnalysisForm() {
                             <h1 className="text-3xl md:text-4xl font-heading text-white">تاريخ الميلاد</h1>
                             <p className="text-gray-400">نستخدم هذا لتحديد مواقع النجوم</p>
                         </div>
-                        <div className="flex justify-center gap-1 md:gap-4 w-full">
-                            <div className="flex-1 min-w-0 bg-[#1F2937]/50 rounded-2xl p-1 md:p-2 backdrop-blur-sm border border-white/5"><ScrollPicker items={days} value={birthDay} onChange={(v) => setBirthDay(v as number)} label="اليوم" /></div>
-                            <div className="flex-[1.5] min-w-0 bg-[#1F2937]/50 rounded-2xl p-1 md:p-2 backdrop-blur-sm border border-white/5"><ScrollPicker items={months} value={birthMonth} onChange={(v) => setBirthMonth(v as string)} label="الشهر" /></div>
-                            <div className="flex-1 min-w-0 bg-[#1F2937]/50 rounded-2xl p-1 md:p-2 backdrop-blur-sm border border-white/5"><ScrollPicker items={years} value={birthYear} onChange={(v) => setBirthYear(v as number)} label="السنة" /></div>
+                        <div className="flex justify-center gap-1 md:gap-4 w-full h-[190px]">
+                            <div className="flex-1 min-w-0 bg-[#1F2937]/50 rounded-2xl p-1 md:p-2 backdrop-blur-sm border border-white/5 h-full overflow-hidden"><ScrollPicker items={days} value={birthDay} onChange={(v) => setBirthDay(v as number)} label="اليوم" /></div>
+                            <div className="flex-[1.5] min-w-0 bg-[#1F2937]/50 rounded-2xl p-1 md:p-2 backdrop-blur-sm border border-white/5 h-full overflow-hidden"><ScrollPicker items={months} value={birthMonth} onChange={(v) => setBirthMonth(v as string)} label="الشهر" /></div>
+                            <div className="flex-1 min-w-0 bg-[#1F2937]/50 rounded-2xl p-1 md:p-2 backdrop-blur-sm border border-white/5 h-full overflow-hidden"><ScrollPicker items={years} value={birthYear} onChange={(v) => setBirthYear(v as number)} label="السنة" /></div>
                         </div>
                         <button onClick={nextStep} className="btn-primary w-full py-4 text-xl mt-8 shadow-[0_4px_20px_rgba(86,113,255,0.4)]">استمرار</button>
                     </div>
@@ -515,6 +515,9 @@ export default function AnalysisForm() {
                     </div>
                 )}
             </div>
+
+            {/* Version Indicator */}
+            <div className="absolute bottom-2 text-[10px] text-gray-700 font-mono opacity-50">v1.1</div>
         </div>
     );
 }
